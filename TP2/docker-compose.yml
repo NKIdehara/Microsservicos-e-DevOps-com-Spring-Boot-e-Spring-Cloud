@@ -1,6 +1,17 @@
-version: '3.8'
+version: '3.9'
 
 services:
+  tp2-server:
+    container_name: tp2-server
+    image: tp2-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - tp2-net
+
   mysql-db:
     container_name: mysql-db
     image: mysql:8.0
@@ -15,17 +26,6 @@ services:
     networks:
       - tp2-net
 
-  tp2-server:
-    container_name: tp2-server
-    image: tp2-server
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    ports:
-      - "8761:8761"
-    networks:
-      - tp2-net
-
   tp2-client:
     container_name: tp2-client
     image: tp2-client
@@ -35,8 +35,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MYSQL_HOST=mysql-db
-      - MYSQL_PORT=3307
+      # - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/tp2-database?createDatabaseIfNotExist=Yes
+      # - SPRING_DATASOURCE_USERNAME=root
+      # - SPRING_DATASOURCE_PASSWORD=abcde
+      - MYSQL_HOST=jdbc:mysql://mysql-db:3306
       - SERVER_URL=http://tp2-server:8761/eureka
     depends_on:
       - tp2-server

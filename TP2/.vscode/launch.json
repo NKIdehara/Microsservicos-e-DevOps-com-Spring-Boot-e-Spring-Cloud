@@ -5,6 +5,13 @@
             "name": "Tp2ClientApplication",
             "request": "launch",
             "mainClass": "br.edu.infnet.microservicos.tp2_client.Tp2ClientApplication",
+            "projectName": "tp1-client"
+        },
+        {
+            "type": "java",
+            "name": "Tp2ClientApplication",
+            "request": "launch",
+            "mainClass": "br.edu.infnet.microservicos.tp2_client.Tp2ClientApplication",
             "projectName": "tp2-client"
         },
         {
