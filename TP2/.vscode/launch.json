@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Tp2ClientApplication",
+            "request": "launch",
+            "mainClass": "br.edu.infnet.microservicos.tp2_client.Tp2ClientApplication",
+            "projectName": "tp2-client"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Tp2ServerApplication<tp2-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.edu.infnet.microservicos.tp2_server.Tp2ServerApplication",
+            "projectName": "tp2-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
