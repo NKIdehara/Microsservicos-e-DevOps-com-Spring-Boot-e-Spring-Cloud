@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+  labels:
+    app: tp2-client
+spec:
+  selector:
+    matchLabels:
+      app: tp2-client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tp2-client
+    spec:
+      containers:
+        - name: tp2-client
+          image: tp2-client:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            # - name: EUREKA_SERVER_URI
+            #   value: "http://eureka-server:8761/eureka/"
+            - name: MYSQL_HOST
+              value: "jdbc:mysql://mysql-db:3306"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "abcde"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tp2-client-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31001
+  selector:
+    app: tp2-client
