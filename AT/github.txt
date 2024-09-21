@@ -1,0 +1,6 @@
+git clone https://github.com/NKIdehara/Microsservicos-e-DevOps-com-Spring-Boot-e-Spring-Cloud.git
+git branch
+git checkout -b novo_ramo
+git branch
+git add .
+git commit -m "Novo ramos"
