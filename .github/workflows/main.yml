@@ -27,3 +27,9 @@ jobs:
 
       - name: Run tests
         run: mvn test -f ./AT/veiculo-service
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: veiculo-service
+          path: target/
