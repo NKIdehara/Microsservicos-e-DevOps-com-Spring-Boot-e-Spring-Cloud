@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Java version
         uses: actions/setup-java@v4
@@ -23,7 +23,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        run: mvn clean install -f ./AT/server
+        run: mvn clean install -f ./AT/server/
 
       - name: Run tests
         run: mvn test
