@@ -23,7 +23,7 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        run: mvn clean --file *.pom install -f ./AT/veiculo-service/
+        run: mvn clean install -f ./AT/veiculo-service
 
       - name: Run tests
-        run: mvn test
+        run: mvn test -f ./AT/veiculo-service
