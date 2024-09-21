@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: veiculo-service
-          path: '${{ github.workspace }}/AT/target/*.jar'
+          path: ./AT/veiculo-service/target
