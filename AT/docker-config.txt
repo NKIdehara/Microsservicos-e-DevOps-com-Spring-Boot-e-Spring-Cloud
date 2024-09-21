@@ -1,0 +1,41 @@
+@echo off
+call mvn clean package -DskipTests -f .\server\
+call mvn clean package -DskipTests -f .\veiculo-service\
+
+call docker build -t server .\server\
+call docker build -t veiculo-service .\veiculo-service\
+
+
+kubectl config use-context docker-desktop
+kubectl config get-contexts
+kubectl get nodes
+kubectl apply -f server-deployment.yaml
+kubectl apply -f veiculo-service-deployment.yaml
+minikube start
+
+-----------------------
+
+minikube delete
+minikube start
+kubectl get all
+minikube docker-env
+& minikube -p minikube docker-env --shell powershell | Invoke-Expression
+docker build -t server .\server\
+docker build -t veiculo-service .\veiculo-service\
+kubectl get all
+kubectl apply -f server-deployment.yaml
+kubectl apply -f veiculo-service-deployment.yaml
+kubectl apply -f veiculo-service-loadbalancer.yaml
+
+kubectl expose deployment veiculo-service-deployment --type=nodePort
+kubectl expose deployment server-deployment --type=NodePort
+
+kubectl get service
+minikube service veiculo-service --url
+minikube service server-service --url
+
+minikube dashboard
+
+kubectl get svc
+kubectl get nodes -o wide
+minikube ip
