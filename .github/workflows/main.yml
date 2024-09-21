@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: veiculo-service
-          path: ./AT/veiculo-service/target
+          path: ./AT/veiculo-service/target/*.jar
