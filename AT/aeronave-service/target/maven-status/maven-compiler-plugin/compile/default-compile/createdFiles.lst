@@ -1,0 +1,7 @@
+br\edu\infnet\microsservicos\AT\aeronave_service\system\SwaggerConfig.class
+br\edu\infnet\microsservicos\AT\aeronave_service\repository\AeronaveRepository.class
+br\edu\infnet\microsservicos\AT\aeronave_service\system\WebConfig.class
+br\edu\infnet\microsservicos\AT\aeronave_service\controller\AeronaveController.class
+br\edu\infnet\microsservicos\AT\aeronave_service\service\AeronaveService.class
+br\edu\infnet\microsservicos\AT\aeronave_service\AeronaveServiceApplication.class
+br\edu\infnet\microsservicos\AT\aeronave_service\model\Aeronave.class
